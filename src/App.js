@@ -1,61 +1,44 @@
 // -------------------------------------------------
 //  IMPORTS
 // -------------------------------------------------
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Nav from "./Nav.js";
 
+const App = (props) => {
+  const [title, setTitle] = useState("title");
+  const [footer, setFooter] = useState("title");
+  const [subtext, setSubtext] = useState("subtext");
+  const [card1, setCard1] = useState("card1");
+  const [card2, setCard2] = useState("card2");
+  const [card3, setCard3] = useState("card3");
+  const [card4, setCard4] = useState("card4");
+  const [clickhere, setClickhere] = useState("CLICK");
+  const [stat, setStat] = useState("col alert alert-danger");
 
-// -------------------------------------------------
-//  VARIABLES
-// -------------------------------------------------
-const page_content = {
-  title: "Welcome",
-  sub_title: "this is some cool subtext",
-  card1: "news update",
-  card2: "some cool content",
-  card3: "warning",
-  card4: "hey",
-  stat: "col alert alert-info",
-  clickhere: "click",
-};
-
-
-// -------------------------------------------------
-//  LOGIC
-// -------------------------------------------------
-
-// var title =  prompt('title: ');
-// page_content.title = title;
-
-// var sub_title =  prompt('subtext: ');
-// page_content.sub_title = sub_title;
-
-// var card_class='col alert alert-';
-// var stat = prompt('stat');
-// page_content.stat = card_class+stat;
-
-// var card1_news = prompt('card1');
-// page_content.card1 = card1_news ;
-
-
-// -------------------------------------------------
-//  RENDER OUTPUT
-// -------------------------------------------------
-
-let App = () => {
   return (
     <React.Fragment>
       <Nav />
 
       <div className="container-fullwidth mx-auto">
         <section>
-          <div className="jumbotron align-center App-header pt-5">
+          <div className="jumbotron align-center header pt-5">
             <div className="container">
-              <h1 className="display-1">{page_content.title}</h1>
-              <p className="lead">{page_content.sub_title}</p>
-              <button className="btn btn-primary shadow">
-                {page_content.clickhere}
+              <h1 className="display-1">{title}</h1>
+              <p className="lead">{subtext}</p>
+              <button
+                onClick={() => {
+                    setTitle("This is My New Title");
+                    setSubtext("this is some cliche subtext");
+                    setStat("col alert alert-info");
+                    setCard1("Info: Some news");
+                    setCard2("Info: Some more news");
+                    setCard3("Info: Some more more news");
+                    setCard4("Info: Some more more news");
+                        setClickhere("CLICK");
+                    }}
+                    className="btn btn-primary shadow">
+                {clickhere}
               </button>
             </div>
           </div>
@@ -63,10 +46,10 @@ let App = () => {
 
         <section>
           <div className="container row pt-5 mx-auto gap-2">
-            <h2 className={page_content.stat}>{page_content.card2}</h2>
-            <h2 className="col alert alert-success">{page_content.card3}</h2>
-            <h2 className="col alert alert-success">{page_content.card4}</h2>
-            <h2 className="col alert alert-success">{page_content.card4}</h2>
+            <h2 className={stat}>{card1}</h2>
+            <h2 className={stat}>{card2}</h2>
+            <h2 className={stat}>{card3}</h2>
+            <h2 className={stat}>{card4}</h2>
           </div>
 
           <div className="container">
@@ -98,11 +81,25 @@ let App = () => {
 
           <div className="container-fullwidth mx-auto">
             <section>
-              <div className="jumbotron align-center App-header pt-5">
+              <div className="jumbotron align-center header pt-5">
                 <div className="container">
-                  <h1 className="display-1">Footer</h1>
-                  <p className="lead">{page_content.sub_title}</p>
-                  <button className="btn btn-primary shadow">click me</button>
+                  <h1 className="display-1">{footer}</h1>
+                  <p className="lead">{subtext}</p>
+                  <button
+                    onClick={() => {
+                        setTitle("this is a footer");
+                        setStat("col alert alert-danger");
+                        setCard1("this is a danger alert");
+                        setCard2("this is a danger alert");
+                        setCard3("this is a danger alert");
+                        setCard4("this is a danger alert");
+                        setFooter("This is a Footer");
+                        setClickhere("My Button");
+ 
+                    }}
+                    className="btn btn-primary shadow">
+                    {clickhere}
+                  </button>
                 </div>
               </div>
             </section>
